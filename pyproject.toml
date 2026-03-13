@@ -1,0 +1,31 @@
+[project]
+name = "defensive-trajectory-prediction"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas==3.0.1",
+    "numpy==2.4",
+    "scipy>=1.14",
+    "pyarrow",
+    "scikit-learn>=1.8.0",
+    "torch>=2.10.0",
+    "matplotlib==3.10.8",
+    "seaborn>=0.13",
+    "wandb",
+    "tqdm>=4.0",
+    "jupyterlab>=4.0",
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends.legacy:build"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]

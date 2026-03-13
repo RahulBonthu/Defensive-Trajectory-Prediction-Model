@@ -1,0 +1,28 @@
+# Dataset — NEVER commit
+data/raw/
+data/processed/
+*.zip
+*.parquet
+
+# Model artifacts
+checkpoints/
+outputs/figures/
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# Wandb
+wandb/
+
+# Environment
+.env
