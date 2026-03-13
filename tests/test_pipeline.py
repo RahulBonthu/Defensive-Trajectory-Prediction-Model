@@ -13,13 +13,29 @@ from pathlib import Path
 # DATA-01: Zip extraction
 # ---------------------------------------------------------------------------
 
-@pytest.mark.skip(reason="Requires real zip file — enabled in Wave 3 (pipeline execution plan)")
 def test_zip_extraction(tmp_path):
-    """DATA-01: extract_dataset() produces data/raw/train/plays.csv."""
+    """DATA-01: extract_dataset() produces data/raw/train/input_2023_w01.csv.
+
+    BDB 2026 format: no plays.csv — data is in input_2023_w*.csv files.
+    """
     from src.data.loader import extract_dataset
-    # Real test runs against actual zip; fixture covers structure only
-    # Verified in plan 01-04 against actual dataset
-    assert True
+    import shutil
+    zip_src = Path(
+        "C:/Users/arcku/OneDrive/Desktop/CS/Projects/nflPrediction/"
+        "Defensive-Trajectory-Prediction-Model/nfl-big-data-bowl-2026-prediction.zip"
+    )
+    if not zip_src.exists():
+        pytest.skip("Dataset zip not present — skip in CI")
+    # Copy zip to tmp_path to avoid modifying the real data dir
+    zip_copy = tmp_path / "nfl-big-data-bowl-2026-prediction.zip"
+    shutil.copy(zip_src, zip_copy)
+    dest = tmp_path / "raw"
+    extract_dataset(zip_copy, dest)
+    assert (dest / "train").exists(), "train/ folder not found after extraction"
+    assert (dest / "train" / "input_2023_w01.csv").exists(), \
+        "input_2023_w01.csv not found in train/"
+    assert (dest / "train" / "output_2023_w01.csv").exists(), \
+        "output_2023_w01.csv not found in train/"
 
 
 # ---------------------------------------------------------------------------
