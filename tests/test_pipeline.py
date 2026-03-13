@@ -26,7 +26,6 @@ def test_zip_extraction(tmp_path):
 # DATA-02: CSV loading and join
 # ---------------------------------------------------------------------------
 
-@pytest.mark.skip(reason="Implementation in src/data/loader.py — created in plan 01-02")
 def test_csv_loading(tracking_df, plays_df, players_df, games_df):
     """DATA-02: load_raw() returns merged DataFrame with expected columns."""
     from src.data.loader import merge_tracking_tables
