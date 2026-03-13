@@ -34,7 +34,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 5 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Project scaffold: pyproject.toml, .gitignore, pytest config, synthetic fixtures, test stubs for all 8 requirements
+- [x] 01-01-PLAN.md — Project scaffold: pyproject.toml, .gitignore, pytest config, synthetic fixtures, test stubs for all 8 requirements
 - [ ] 01-02-PLAN.md — Pipeline implementation: loader.py, preprocessor.py, sample_builder.py, run_pipeline.py, validate_normalization.py
 - [ ] 01-03-PLAN.md — DATA-03 gate: commit all code to GitHub, then prompt for dataset zip upload
 - [ ] 01-04-PLAN.md — Pipeline execution: run against real data, inspect schema, confirm splits.json and cleaned.parquet
@@ -91,7 +91,7 @@ Phases execute in strict sequential order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Data Pipeline and Validation | 0/5 | Planned | - |
+| 1. Data Pipeline and Validation | 1/5 | In progress | - |
 | 2. Feature Engineering and Dataset Wrappers | 0/TBD | Not started | - |
 | 3. Model Architecture and Training Infrastructure | 0/TBD | Not started | - |
 | 4. Model Training and Ablation Evaluation | 0/TBD | Not started | - |

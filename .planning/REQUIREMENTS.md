@@ -9,7 +9,7 @@
 
 - [ ] **DATA-01**: System accepts `nfl-big-data-bowl-2026-prediction.zip` and extracts `train/` and `test/` folders automatically
 - [ ] **DATA-02**: System loads raw NFL Big Data Bowl CSV tracking files from extracted zip structure
-- [ ] **DATA-03**: All changes are committed to GitHub before any step that prompts the user to provide the dataset
+- [x] **DATA-03**: All changes are committed to GitHub before any step that prompts the user to provide the dataset
 
 ### Preprocessing
 
@@ -88,7 +88,7 @@
 |-------------|-------|--------|
 | DATA-01 | Phase 1 — Data Pipeline and Validation | Pending |
 | DATA-02 | Phase 1 — Data Pipeline and Validation | Pending |
-| DATA-03 | Phase 1 — Data Pipeline and Validation | Pending |
+| DATA-03 | Phase 1 — Data Pipeline and Validation | Complete (01-01) |
 | PREP-01 | Phase 1 — Data Pipeline and Validation | Pending |
 | PREP-02 | Phase 1 — Data Pipeline and Validation | Pending |
 | PREP-03 | Phase 1 — Data Pipeline and Validation | Pending |
@@ -125,4 +125,4 @@
 
 ---
 *Requirements defined: 2026-03-13*
-*Last updated: 2026-03-13 after roadmap creation*
+*Last updated: 2026-03-13 after plan 01-01 completion*
