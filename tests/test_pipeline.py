@@ -40,7 +40,6 @@ def test_csv_loading(tracking_df, plays_df, players_df, games_df):
 # PREP-01: LOS-relative coordinate normalization
 # ---------------------------------------------------------------------------
 
-@pytest.mark.skip(reason="Implementation in src/data/preprocessor.py — created in plan 01-02")
 def test_los_normalization(tracking_df):
     """PREP-01: After normalization, snap-frame offensive linemen cluster near x=0."""
     from src.data.preprocessor import normalize_coordinates
@@ -58,7 +57,6 @@ def test_los_normalization(tracking_df):
 # PREP-02: Play direction flip
 # ---------------------------------------------------------------------------
 
-@pytest.mark.skip(reason="Implementation in src/data/preprocessor.py — created in plan 01-02")
 def test_play_direction_flip(tracking_df):
     """PREP-02: After flip, all plays have offense moving in positive X direction."""
     from src.data.preprocessor import normalize_coordinates
@@ -80,7 +78,6 @@ def test_play_direction_flip(tracking_df):
 # PREP-03: Angle sin/cos encoding
 # ---------------------------------------------------------------------------
 
-@pytest.mark.skip(reason="Implementation in src/data/preprocessor.py — created in plan 01-02")
 def test_angle_sincos_encoding(tracking_df):
     """PREP-03: dir_sin and dir_cos present; raw dir and o columns absent."""
     from src.data.preprocessor import normalize_coordinates, encode_angles
@@ -101,7 +98,6 @@ def test_angle_sincos_encoding(tracking_df):
 # PREP-04: Missing frame interpolation and flagging
 # ---------------------------------------------------------------------------
 
-@pytest.mark.skip(reason="Implementation in src/data/preprocessor.py — created in plan 01-02")
 def test_interpolation_and_flagging(tracking_df):
     """PREP-04: is_interpolated flag present; missing frames filled; >3 consecutive flagged."""
     from src.data.preprocessor import interpolate_missing_frames
@@ -122,7 +118,6 @@ def test_interpolation_and_flagging(tracking_df):
 # PREP-05: Acceleration computation
 # ---------------------------------------------------------------------------
 
-@pytest.mark.skip(reason="Implementation in src/data/preprocessor.py — created in plan 01-02")
 def test_acceleration_computed(tracking_df):
     """PREP-05: a_computed is non-null for all non-interpolated frames."""
     from src.data.preprocessor import interpolate_missing_frames, compute_acceleration
@@ -142,7 +137,6 @@ def test_acceleration_computed(tracking_df):
 # PREP-06: Temporal train/val/test split — zero overlap
 # ---------------------------------------------------------------------------
 
-@pytest.mark.skip(reason="Implementation in src/data/preprocessor.py — created in plan 01-02")
 def test_temporal_split_disjoint(games_df, tmp_path):
     """PREP-06: set(train_game_ids) & set(test_game_ids) == set() — no leakage."""
     from src.data.preprocessor import make_temporal_split

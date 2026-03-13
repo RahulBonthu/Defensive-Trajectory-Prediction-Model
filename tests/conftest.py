@@ -55,6 +55,12 @@ def tracking_df(plays_df, games_df):
             # Skip frame 3 for nflId=1 to simulate missing frame
             if nfl_id == 1 and frame_id == 3:
                 continue
+            # For left-directed plays, raw x should decrease (offense moving toward x=0).
+            # Using 60.0 - frame_id * 0.5 ensures that after the 120-x mirror,
+            # normalized x increases with frameId (positive displacement) — matching
+            # the test_play_direction_flip assertion.  The mirrored snap frame x
+            # is ~60.5, and los_x=85, giving norm x ~ -24.5 which satisfies |x|<30.
+            raw_x = (50.0 + frame_id * 0.5) if direction == "right" else (60.0 - frame_id * 0.5)
             rows.append({
                 "gameId": game_id,
                 "playId": play_id,
@@ -63,7 +69,7 @@ def tracking_df(plays_df, games_df):
                 "position": pos,
                 "frameId": frame_id,
                 "time": f"2022-09-11T00:00:0{frame_id}.000",
-                "x": 50.0 + frame_id * 0.5,
+                "x": raw_x,
                 "y": 26.65 + frame_id * 0.1,
                 "s": 2.0 + frame_id * 0.1,
                 "a": 0.5,
