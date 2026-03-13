@@ -1,19 +1,25 @@
 """
 End-to-end NFL tracking data pipeline.
 
+BDB 2026 competition format (updated 2026-03-13):
+    Input: train/input_2023_w*.csv per week (tracking + metadata + ball_land_x/y all-in-one)
+    Column names: snake_case in raw files, renamed to camelCase by loader for preprocessor
+    ball_land_x / ball_land_y: directly provided per row (no derivation needed)
+    week: encoded in filename, added as column by loader
+
 Usage:
-    python scripts/run_pipeline.py --zip-path /path/to/data.zip
+    python scripts/run_pipeline.py --zip-path nfl-big-data-bowl-2026-prediction.zip
 
 Steps:
     1.  extract_dataset      — unzip to data/raw/
-    2.  load_raw             — concatenate tracking CSVs + merge auxiliary tables
-    3.  Schema inspection    — print plays.csv columns for ball-landing coordinate check
+    2.  load_raw             — concatenate input_2023_w*.csv files with week column
+    3.  Schema inspection    — print input CSV columns for documentation
     4.  normalize_coordinates — LOS-relative coords, direction flip
     5.  encode_angles        — dir/o -> sin/cos
     6.  interpolate_missing_frames
     7.  compute_acceleration
     8.  Save cleaned.parquet
-    9.  make_temporal_split  — write splits.json
+    9.  make_temporal_split  — write splits.json (week-based from filename)
     10. build_samples        — construct player-play tensors
     11. Print sample counts
 """
@@ -35,7 +41,7 @@ def main() -> None:
         type=Path,
         required=False,
         default=None,
-        help="Path to the competition ZIP file (e.g. nfl-big-data-bowl-2026.zip). "
+        help="Path to the competition ZIP file. "
              "If omitted, extraction is skipped and data/raw must already exist.",
     )
     parser.add_argument(
@@ -84,18 +90,23 @@ def main() -> None:
         print("[1/9] --zip-path not provided; assuming data/raw already populated.")
 
     # Step 2: load
-    print("[2/9] Loading and merging raw CSVs ...")
+    print("[2/9] Loading raw CSVs (BDB 2026 input_2023_w*.csv format) ...")
     df = load_raw(args.data_dir)
     print(f"      Loaded {len(df):,} tracking rows, {df['gameId'].nunique()} games.")
 
-    # Step 3: schema check
-    print("[3/9] plays.csv columns (for ball landing coordinate verification):")
-    plays_path = args.data_dir / "train" / "plays.csv"
-    if plays_path.exists():
-        plays_cols = pd.read_csv(plays_path, nrows=0).columns.tolist()
-        print("     ", plays_cols)
+    # Step 3: schema check — document columns and ball landing coordinates
+    print("[3/9] Input CSV columns (ball landing coordinate verification):")
+    train_dir = args.data_dir / "train"
+    sample_input = sorted(train_dir.glob("input_2023_w*.csv"))
+    if sample_input:
+        sample_cols = pd.read_csv(sample_input[0], nrows=0).columns.tolist()
+        print("     ", sample_cols)
+        has_ball_land = "ball_land_x" in sample_cols and "ball_land_y" in sample_cols
+        print(f"      ball_land_x/ball_land_y present: {has_ball_land}")
+        if has_ball_land:
+            print("      Ball landing coordinates are directly provided per row — no derivation needed.")
     else:
-        print("      plays.csv not found — skipping schema check.")
+        print("      No input CSVs found — skipping schema check.")
 
     # Step 4: normalize
     print("[4/9] Normalizing coordinates (LOS-relative, direction flip) ...")
@@ -122,12 +133,17 @@ def main() -> None:
     df.to_parquet(cleaned_path, index=False)
     print(f"      Saved {len(df):,} rows, {df.shape[1]} columns.")
 
-    # Step 9: temporal split
+    # Step 9: temporal split — use week column added by loader from filename
     print("[9/9] Building temporal train/val/test split ...")
-    games = pd.read_csv(args.data_dir / "train" / "games.csv")
+    # Build a synthetic games DataFrame from the loaded data (week already in df)
+    games_df = (
+        df[["gameId", "week"]]
+        .drop_duplicates()
+        .reset_index(drop=True)
+    )
     split_path = args.output_dir / "splits.json"
     split = make_temporal_split(
-        games,
+        games_df,
         val_weeks=args.val_weeks,
         test_weeks=args.test_weeks,
         output_path=split_path,

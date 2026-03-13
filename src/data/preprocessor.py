@@ -86,6 +86,18 @@ def normalize_coordinates(df: pd.DataFrame) -> pd.DataFrame:
     # Step 10 — centre field laterally (field width = 53.3 yards)
     df["y"] = df["y"] - 26.65
 
+    # Step 11 — normalize ball_land_x / ball_land_y if present (BDB 2026 format)
+    # These are in raw field coordinates and need the same LOS-relative + direction
+    # normalization as player x/y.
+    if "ball_land_x" in df.columns and "ball_land_y" in df.columns:
+        # Mirror ball landing for left-direction plays
+        df.loc[left_mask, "ball_land_x"] = 120 - df.loc[left_mask, "ball_land_x"]
+        df.loc[left_mask, "ball_land_y"] = 53.3 - df.loc[left_mask, "ball_land_y"]
+        # LOS-relative: subtract the same los_x used for player coords
+        df["ball_land_x"] = df["ball_land_x"] - df["los_x"]
+        # Centre laterally
+        df["ball_land_y"] = df["ball_land_y"] - 26.65
+
     return df
 
 

@@ -22,14 +22,20 @@ import pandas as pd
 
 
 def _show_schema(data_dir: Path) -> None:
-    plays_path = data_dir / "train" / "plays.csv"
-    if not plays_path.exists():
-        print(f"plays.csv not found at {plays_path}")
+    # BDB 2026 format: columns are in input_2023_w*.csv (not plays.csv)
+    import glob as _glob
+    input_files = sorted((data_dir / "train").glob("input_2023_w*.csv"))
+    if not input_files:
+        print(f"No input_2023_w*.csv files found in {data_dir / 'train'}")
         return
-    df = pd.read_csv(plays_path, nrows=0)
-    print(f"plays.csv columns ({len(df.columns)} total):")
+    df = pd.read_csv(input_files[0], nrows=0)
+    print(f"input CSV columns ({len(df.columns)} total):")
     for col in df.columns:
         print(f"  - {col}")
+    has_ball = "ball_land_x" in df.columns and "ball_land_y" in df.columns
+    print(f"\nball_land_x/ball_land_y present: {has_ball}")
+    if has_ball:
+        print("Ball landing coordinates are directly provided per row — no derivation needed.")
 
 
 def _show_positions(cleaned_path: Path) -> None:
