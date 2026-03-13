@@ -86,43 +86,43 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DATA-01 | Phase 1 | Pending |
-| DATA-02 | Phase 1 | Pending |
-| DATA-03 | Phase 1 | Pending |
-| PREP-01 | Phase 1 | Pending |
-| PREP-02 | Phase 1 | Pending |
-| PREP-03 | Phase 1 | Pending |
-| PREP-04 | Phase 1 | Pending |
-| PREP-05 | Phase 1 | Pending |
-| PREP-06 | Phase 1 | Pending |
-| FEAT-01 | Phase 2 | Pending |
-| FEAT-02 | Phase 2 | Pending |
-| FEAT-03 | Phase 2 | Pending |
-| FEAT-04 | Phase 2 | Pending |
-| FEAT-05 | Phase 2 | Pending |
-| FEAT-06 | Phase 2 | Pending |
-| MODEL-01 | Phase 3 | Pending |
-| MODEL-02 | Phase 3 | Pending |
-| MODEL-03 | Phase 3 | Pending |
-| MODEL-04 | Phase 3 | Pending |
-| MODEL-05 | Phase 3 | Pending |
-| MODEL-06 | Phase 3 | Pending |
-| TRAIN-01 | Phase 4 | Pending |
-| TRAIN-02 | Phase 4 | Pending |
-| TRAIN-03 | Phase 4 | Pending |
-| TRAIN-04 | Phase 4 | Pending |
-| EVAL-01 | Phase 4 | Pending |
-| EVAL-02 | Phase 4 | Pending |
-| EVAL-03 | Phase 4 | Pending |
-| EVAL-04 | Phase 4 | Pending |
-| VIZ-01 | Phase 5 | Pending |
-| VIZ-02 | Phase 5 | Pending |
+| DATA-01 | Phase 1 — Data Pipeline and Validation | Pending |
+| DATA-02 | Phase 1 — Data Pipeline and Validation | Pending |
+| DATA-03 | Phase 1 — Data Pipeline and Validation | Pending |
+| PREP-01 | Phase 1 — Data Pipeline and Validation | Pending |
+| PREP-02 | Phase 1 — Data Pipeline and Validation | Pending |
+| PREP-03 | Phase 1 — Data Pipeline and Validation | Pending |
+| PREP-04 | Phase 1 — Data Pipeline and Validation | Pending |
+| PREP-05 | Phase 1 — Data Pipeline and Validation | Pending |
+| PREP-06 | Phase 1 — Data Pipeline and Validation | Pending |
+| FEAT-01 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
+| FEAT-02 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
+| FEAT-03 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
+| FEAT-04 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
+| FEAT-05 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
+| FEAT-06 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
+| MODEL-01 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
+| MODEL-02 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
+| MODEL-03 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
+| MODEL-04 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
+| MODEL-05 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
+| MODEL-06 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
+| TRAIN-01 | Phase 4 — Model Training and Ablation Evaluation | Pending |
+| TRAIN-02 | Phase 4 — Model Training and Ablation Evaluation | Pending |
+| TRAIN-03 | Phase 4 — Model Training and Ablation Evaluation | Pending |
+| TRAIN-04 | Phase 4 — Model Training and Ablation Evaluation | Pending |
+| EVAL-01 | Phase 4 — Model Training and Ablation Evaluation | Pending |
+| EVAL-02 | Phase 4 — Model Training and Ablation Evaluation | Pending |
+| EVAL-03 | Phase 4 — Model Training and Ablation Evaluation | Pending |
+| EVAL-04 | Phase 4 — Model Training and Ablation Evaluation | Pending |
+| VIZ-01 | Phase 5 — Visualization and Poster Figures | Pending |
+| VIZ-02 | Phase 5 — Visualization and Poster Figures | Pending |
 
 **Coverage:**
-- v1 requirements: 30 total
-- Mapped to phases: 30
+- v1 requirements: 31 total
+- Mapped to phases: 31
 - Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-03-13*
-*Last updated: 2026-03-13 after initial definition*
+*Last updated: 2026-03-13 after roadmap creation*
