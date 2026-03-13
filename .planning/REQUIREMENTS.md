@@ -7,18 +7,18 @@
 
 ### Data Ingestion
 
-- [ ] **DATA-01**: System accepts `nfl-big-data-bowl-2026-prediction.zip` and extracts `train/` and `test/` folders automatically
-- [ ] **DATA-02**: System loads raw NFL Big Data Bowl CSV tracking files from extracted zip structure
+- [x] **DATA-01**: System accepts `nfl-big-data-bowl-2026-prediction.zip` and extracts `train/` and `test/` folders automatically
+- [x] **DATA-02**: System loads raw NFL Big Data Bowl CSV tracking files from extracted zip structure
 - [x] **DATA-03**: All changes are committed to GitHub before any step that prompts the user to provide the dataset
 
 ### Preprocessing
 
-- [ ] **PREP-01**: Player coordinates are normalized relative to the line of scrimmage (subtract LOS x-coordinate)
-- [ ] **PREP-02**: All offensive plays are flipped so the offense always moves in the positive X direction
-- [ ] **PREP-03**: Direction angle features (`dir`, `o`) are encoded as sin/cos components to handle the 0°/360° discontinuity
-- [ ] **PREP-04**: Missing frames are filled via linear interpolation on x, y, speed, and direction; sequences with >3 consecutive missing frames are flagged
-- [ ] **PREP-05**: Acceleration is computed from velocity when not provided in the raw data
-- [ ] **PREP-06**: Train/validation/test split is performed by game week (not random play) before any normalization statistics are computed — prevents data leakage
+- [x] **PREP-01**: Player coordinates are normalized relative to the line of scrimmage (subtract LOS x-coordinate)
+- [x] **PREP-02**: All offensive plays are flipped so the offense always moves in the positive X direction
+- [x] **PREP-03**: Direction angle features (`dir`, `o`) are encoded as sin/cos components to handle the 0°/360° discontinuity
+- [x] **PREP-04**: Missing frames are filled via linear interpolation on x, y, speed, and direction; sequences with >3 consecutive missing frames are flagged
+- [x] **PREP-05**: Acceleration is computed from velocity when not provided in the raw data
+- [x] **PREP-06**: Train/validation/test split is performed by game week (not random play) before any normalization statistics are computed — prevents data leakage
 
 ### Feature Engineering
 
@@ -86,15 +86,15 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DATA-01 | Phase 1 — Data Pipeline and Validation | Pending |
-| DATA-02 | Phase 1 — Data Pipeline and Validation | Pending |
+| DATA-01 | Phase 1 — Data Pipeline and Validation | Complete |
+| DATA-02 | Phase 1 — Data Pipeline and Validation | Complete |
 | DATA-03 | Phase 1 — Data Pipeline and Validation | Complete (01-01) |
-| PREP-01 | Phase 1 — Data Pipeline and Validation | Pending |
-| PREP-02 | Phase 1 — Data Pipeline and Validation | Pending |
-| PREP-03 | Phase 1 — Data Pipeline and Validation | Pending |
-| PREP-04 | Phase 1 — Data Pipeline and Validation | Pending |
-| PREP-05 | Phase 1 — Data Pipeline and Validation | Pending |
-| PREP-06 | Phase 1 — Data Pipeline and Validation | Pending |
+| PREP-01 | Phase 1 — Data Pipeline and Validation | Complete |
+| PREP-02 | Phase 1 — Data Pipeline and Validation | Complete |
+| PREP-03 | Phase 1 — Data Pipeline and Validation | Complete |
+| PREP-04 | Phase 1 — Data Pipeline and Validation | Complete |
+| PREP-05 | Phase 1 — Data Pipeline and Validation | Complete |
+| PREP-06 | Phase 1 — Data Pipeline and Validation | Complete |
 | FEAT-01 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
 | FEAT-02 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
 | FEAT-03 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
