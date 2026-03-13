@@ -35,8 +35,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md — Project scaffold: pyproject.toml, .gitignore, pytest config, synthetic fixtures, test stubs for all 8 requirements
-- [ ] 01-02-PLAN.md — Pipeline implementation: loader.py, preprocessor.py, sample_builder.py, run_pipeline.py, validate_normalization.py
-- [ ] 01-03-PLAN.md — DATA-03 gate: commit all code to GitHub, then prompt for dataset zip upload
+- [x] 01-02-PLAN.md — Pipeline implementation: loader.py, preprocessor.py, sample_builder.py, run_pipeline.py, validate_normalization.py
+- [x] 01-03-PLAN.md — DATA-03 gate: commit all code to GitHub, then prompt for dataset zip upload
 - [ ] 01-04-PLAN.md — Pipeline execution: run against real data, inspect schema, confirm splits.json and cleaned.parquet
 - [ ] 01-05-PLAN.md — Visual gate: human confirms 50-play overlay normalization, commit artifacts, close Phase 1
 
