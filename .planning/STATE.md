@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Completed 01-03 — ready to begin 01-04 (pipeline execution against real dataset)"
-last_updated: "2026-03-13T23:15:00.000Z"
-last_activity: 2026-03-13 — Plan 01-03 complete (dataset zip confirmed in project root, DATA-03 satisfied)
+stopped_at: "Completed 01-04 — Phase 1 (plans 01-04) complete; ready for Plan 01-05 or Phase 2"
+last_updated: "2026-03-13T23:30:00.000Z"
+last_activity: 2026-03-13 — Plan 01-04 complete (pipeline executed against real BDB 2026 dataset; cleaned.parquet + splits.json + overlay PNG produced; all 8 tests pass)
 progress:
   total_phases: 5
   completed_phases: 0
   total_plans: 5
-  completed_plans: 3
-  percent: 60
+  completed_plans: 4
+  percent: 80
 ---
 
 # Project State
@@ -26,28 +26,28 @@ See: .planning/PROJECT.md (updated 2026-03-13)
 ## Current Position
 
 Phase: 1 of 5 (Data Pipeline and Validation)
-Plan: 3 of 5 complete — next: 01-04 (pipeline execution against real dataset)
-Status: In progress — ready to execute plan 01-04
-Last activity: 2026-03-13 — Plan 01-03 complete (nfl-big-data-bowl-2026-prediction.zip confirmed in project root, gitignored, DATA-03 satisfied)
+Plan: 4 of 5 complete — next: 01-05 (final validation gate)
+Status: In progress — ready to execute plan 01-05
+Last activity: 2026-03-13 — Plan 01-04 complete (BDB 2026 pipeline adapted and executed; 4.88M rows cleaned.parquet; disjoint splits; all 8 tests pass; ball_land_x/y confirmed)
 
-Progress: [██████░░░░] 60%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 6 min
-- Total execution time: 0.2 hours
+- Total plans completed: 4
+- Average duration: 10 min
+- Total execution time: 0.7 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-data-pipeline-and-validation | 3 | 19 min | 6 min |
+| 01-data-pipeline-and-validation | 4 | 43 min | 11 min |
 
 **Recent Trend:**
-- Last 5 plans: 4 min, 7 min, 8 min
-- Trend: stable
+- Last 5 plans: 4 min, 7 min, 8 min, 24 min
+- Trend: stable (plan 01-04 longer due to dataset format discovery + adaptation)
 
 *Updated after each plan completion*
 
@@ -70,19 +70,22 @@ Recent decisions affecting current work:
 - [Phase 01-data-pipeline-and-validation]: Use explicit groupby loop (not .apply()) in interpolate_missing_frames to preserve gameId/playId/nflId key columns
 - [01-03]: DATA-03 enforcement — code-first gate: all Wave 1 source pushed to GitHub before dataset zip is ever placed locally
 - [01-03]: Dataset filename nfl-big-data-bowl-2026-prediction.zip must match exactly — loader.py references this filename
+- [01-04]: BDB 2026 dataset uses input_2023_w*.csv format — no separate plays/games/players CSVs; ball_land_x/ball_land_y provided directly per row; week derived from filename
+- [01-04]: ball_land_x and ball_land_y are in raw NFL field coords; apply same LOS-relative + center-y normalization as player x/y
+- [01-04]: pyproject.toml build-backend: setuptools.build_meta (not setuptools.backends.legacy:build — removed in v82)
 
 ### Pending Todos
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
-- [Phase 1 pre-work]: NFL BDB exact column name for ball landing location in plays.csv (e.g., `targetX`/`targetY`) must be verified against the specific competition year's data dictionary before implementation begins
+- [RESOLVED 01-04]: NFL BDB exact column name for ball landing location — RESOLVED: BDB 2026 provides ball_land_x / ball_land_y directly per row; no derivation needed
 - [Phase 1 pre-work]: Confirm training environment (Apple Silicon MPS vs CUDA) before Phase 3 to avoid mid-training surprises
-- [Phase 1 pre-work]: Confirm actual dataset year and total play count — if sample count is smaller than expected, per-position subgroup analysis may lack statistical power
+- [Phase 1 pre-work]: Dataset has 4.88M rows / 93,824 total samples (72,400 train + 10,276 val + 11,148 test) — sufficient for Phase 2 training
 
 ## Session Continuity
 
-Last session: 2026-03-13T23:15:00.000Z
-Stopped at: Completed 01-03 — plan 01-04 (pipeline execution against real dataset) is next
+Last session: 2026-03-13T23:30:00.000Z
+Stopped at: Completed 01-04 — ready for 01-05 (final validation gate)
 Resume file: None
