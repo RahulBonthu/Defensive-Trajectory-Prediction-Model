@@ -12,7 +12,7 @@ Five sequential phases deliver the complete ablation study pipeline. The depende
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Data Pipeline and Validation** - Load, normalize, and validate raw NFL tracking data into canonical LOS-relative player-play samples
+- [x] **Phase 1: Data Pipeline and Validation** - Load, normalize, and validate raw NFL tracking data into canonical LOS-relative player-play samples
 - [ ] **Phase 2: Feature Engineering and Dataset Wrappers** - Build kinematic + social context feature vectors and PyTorch Datasets for both model variants with ablation gate enforced
 - [ ] **Phase 3: Model Architecture and Training Infrastructure** - Implement shared Conv-Transformer model class and identical training harness for both models
 - [ ] **Phase 4: Model Training and Ablation Evaluation** - Train Model A and Model B, evaluate on held-out test set, produce ablation comparison with statistical significance
@@ -37,8 +37,8 @@ Plans:
 - [x] 01-01-PLAN.md — Project scaffold: pyproject.toml, .gitignore, pytest config, synthetic fixtures, test stubs for all 8 requirements
 - [x] 01-02-PLAN.md — Pipeline implementation: loader.py, preprocessor.py, sample_builder.py, run_pipeline.py, validate_normalization.py
 - [x] 01-03-PLAN.md — DATA-03 gate: commit all code to GitHub, then prompt for dataset zip upload
-- [ ] 01-04-PLAN.md — Pipeline execution: run against real data, inspect schema, confirm splits.json and cleaned.parquet
-- [ ] 01-05-PLAN.md — Visual gate: human confirms 50-play overlay normalization, commit artifacts, close Phase 1
+- [x] 01-04-PLAN.md — Pipeline execution: run against real data, inspect schema, confirm splits.json and cleaned.parquet
+- [x] 01-05-PLAN.md — Visual gate: human confirms 50-play overlay normalization, commit artifacts, close Phase 1
 
 ### Phase 2: Feature Engineering and Dataset Wrappers
 **Goal**: Two PyTorch Datasets — one for each model variant — yield correctly shaped tensors with the ablation boundary provably enforced
@@ -91,7 +91,7 @@ Phases execute in strict sequential order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Data Pipeline and Validation | 4/5 | In Progress|  |
+| 1. Data Pipeline and Validation | 5/5 | Complete | 2026-03-13 |
 | 2. Feature Engineering and Dataset Wrappers | 0/TBD | Not started | - |
 | 3. Model Architecture and Training Infrastructure | 0/TBD | Not started | - |
 | 4. Model Training and Ablation Evaluation | 0/TBD | Not started | - |

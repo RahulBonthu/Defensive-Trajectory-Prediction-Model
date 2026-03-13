@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Completed 01-04 — Phase 1 (plans 01-04) complete; ready for Plan 01-05 or Phase 2"
-last_updated: "2026-03-13T23:30:00.000Z"
-last_activity: 2026-03-13 — Plan 01-04 complete (pipeline executed against real BDB 2026 dataset; cleaned.parquet + splits.json + overlay PNG produced; all 8 tests pass)
+stopped_at: "Completed 01-05 — Phase 1 complete; ready for Phase 2 (Feature Engineering)"
+last_updated: "2026-03-13T23:45:00.000Z"
+last_activity: 2026-03-13 — Plan 01-05 complete (human confirmed 50-play overlay; Phase 1 closed; all 6 success criteria met)
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 5
-  completed_plans: 4
-  percent: 80
+  completed_plans: 5
+  percent: 20
 ---
 
 # Project State
@@ -25,10 +25,10 @@ See: .planning/PROJECT.md (updated 2026-03-13)
 
 ## Current Position
 
-Phase: 1 of 5 (Data Pipeline and Validation)
-Plan: 4 of 5 complete — next: 01-05 (final validation gate)
-Status: In progress — ready to execute plan 01-05
-Last activity: 2026-03-13 — Plan 01-04 complete (BDB 2026 pipeline adapted and executed; 4.88M rows cleaned.parquet; disjoint splits; all 8 tests pass; ball_land_x/y confirmed)
+Phase: 2 of 5 (Feature Engineering and Dataset Wrappers) — not yet started
+Plan: Phase 1 fully complete (5/5) — next: plan 02-01
+Status: Phase 1 complete — ready to begin Phase 2
+Last activity: 2026-03-13 — Plan 01-05 complete (human confirmed 50-play overlay; all 6 Phase 1 success criteria met; Phase 1 closed)
 
 Progress: [████████░░] 80%
 
