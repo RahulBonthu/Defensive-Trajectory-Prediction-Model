@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Completed 01-05 — Phase 1 complete; ready for Phase 2 (Feature Engineering)"
-last_updated: "2026-03-13T23:45:00.000Z"
-last_activity: 2026-03-13 — Plan 01-05 complete (human confirmed 50-play overlay; Phase 1 closed; all 6 success criteria met)
+stopped_at: "Completed 02-01 — dataset test scaffold (6 RED stubs + 2 synthetic fixtures)"
+last_updated: "2026-03-13T23:56:13Z"
+last_activity: 2026-03-13 — Plan 02-01 complete (Wave-0 test scaffold; 6 RED stubs; all 8 Phase 1 pipeline tests still green)
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 5
-  completed_plans: 5
-  percent: 20
+  total_plans: 6
+  completed_plans: 6
+  percent: 22
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-13)
 
 **Core value:** Quantifiably demonstrate that knowing the ball's destination improves defensive player trajectory prediction accuracy via a clean transformer ablation study
-**Current focus:** Phase 1 — Data Pipeline and Validation
+**Current focus:** Phase 2 — Feature Engineering and Dataset Wrappers
 
 ## Current Position
 
-Phase: 2 of 5 (Feature Engineering and Dataset Wrappers) — not yet started
-Plan: Phase 1 fully complete (5/5) — next: plan 02-01
-Status: Phase 1 complete — ready to begin Phase 2
-Last activity: 2026-03-13 — Plan 01-05 complete (human confirmed 50-play overlay; all 6 Phase 1 success criteria met; Phase 1 closed)
+Phase: 2 of 5 (Feature Engineering and Dataset Wrappers) — in progress
+Plan: 02-01 complete (1/N) — next: plan 02-02 (implement DefensiveTrajectoryDataset)
+Status: Phase 2 in progress — Wave-0 test scaffold done, ready for implementation
+Last activity: 2026-03-13 — Plan 02-01 complete (Wave-0 scaffold: 6 RED test stubs + minimal_samples + minimal_context_df fixtures; all 8 Phase 1 tests still green)
 
-Progress: [████████░░] 80%
+Progress: [████████░░] 22%
 
 ## Performance Metrics
 
@@ -74,6 +74,10 @@ Recent decisions affecting current work:
 - [01-04]: ball_land_x and ball_land_y are in raw NFL field coords; apply same LOS-relative + center-y normalization as player x/y
 - [01-04]: pyproject.toml build-backend: setuptools.build_meta (not setuptools.backends.legacy:build — removed in v82)
 
+- [02-01]: Test stubs use real assertions (not pytest.mark.skip) to keep RED state visible — skip masks the RED/GREEN signal
+- [02-01]: minimal_context_df fixture includes ball_land_x/ball_land_y columns so dataset implementation can read them without disk access
+- [02-01]: STRICT_POSITIONS = {"CB", "FS", "SS", "LB"} documented in test_dataset.py as the position filtering contract
+
 ### Pending Todos
 
 None.
@@ -86,6 +90,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-13T23:30:00.000Z
-Stopped at: Completed 01-04 — ready for 01-05 (final validation gate)
+Last session: 2026-03-13T23:56:13Z
+Stopped at: Completed 02-01 — dataset test scaffold (6 RED stubs + 2 synthetic fixtures); ready for 02-02
 Resume file: None

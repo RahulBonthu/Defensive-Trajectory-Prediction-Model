@@ -22,12 +22,12 @@
 
 ### Feature Engineering
 
-- [ ] **FEAT-01**: Dataset is filtered to defensive positions only: CB, FS, SS, LB
-- [ ] **FEAT-02**: Each player-play pair is treated as an independent motion sample
-- [ ] **FEAT-03**: Fixed-length input sequences are constructed per player-play (observation window from snap + N frames); short plays are post-padded with masking
-- [ ] **FEAT-04**: Social context features are assembled: all 22 players' (x, y, speed, direction) at each timestep are included as additional input channels
-- [ ] **FEAT-05**: Ball landing location is extracted as a ground-truth feature from the dataset — injected into Model B inputs only; never present in Model A inputs
-- [ ] **FEAT-06**: A unit test verifies that Model A training inputs contain zero ball destination information (leakage prevention)
+- [x] **FEAT-01**: Dataset is filtered to defensive positions only: CB, FS, SS, LB
+- [x] **FEAT-02**: Each player-play pair is treated as an independent motion sample
+- [x] **FEAT-03**: Fixed-length input sequences are constructed per player-play (observation window from snap + N frames); short plays are post-padded with masking
+- [x] **FEAT-04**: Social context features are assembled: all 22 players' (x, y, speed, direction) at each timestep are included as additional input channels
+- [x] **FEAT-05**: Ball landing location is extracted as a ground-truth feature from the dataset — injected into Model B inputs only; never present in Model A inputs
+- [x] **FEAT-06**: A unit test verifies that Model A training inputs contain zero ball destination information (leakage prevention)
 
 ### Model Architecture
 
@@ -95,12 +95,12 @@
 | PREP-04 | Phase 1 — Data Pipeline and Validation | Complete |
 | PREP-05 | Phase 1 — Data Pipeline and Validation | Complete |
 | PREP-06 | Phase 1 — Data Pipeline and Validation | Complete |
-| FEAT-01 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
-| FEAT-02 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
-| FEAT-03 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
-| FEAT-04 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
-| FEAT-05 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
-| FEAT-06 | Phase 2 — Feature Engineering and Dataset Wrappers | Pending |
+| FEAT-01 | Phase 2 — Feature Engineering and Dataset Wrappers | Complete |
+| FEAT-02 | Phase 2 — Feature Engineering and Dataset Wrappers | Complete |
+| FEAT-03 | Phase 2 — Feature Engineering and Dataset Wrappers | Complete |
+| FEAT-04 | Phase 2 — Feature Engineering and Dataset Wrappers | Complete |
+| FEAT-05 | Phase 2 — Feature Engineering and Dataset Wrappers | Complete |
+| FEAT-06 | Phase 2 — Feature Engineering and Dataset Wrappers | Complete |
 | MODEL-01 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
 | MODEL-02 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
 | MODEL-03 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
