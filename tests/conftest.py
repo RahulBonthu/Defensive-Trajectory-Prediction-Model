@@ -94,3 +94,73 @@ def players_df():
         "height": ["6-2", "5-11", "6-1", "6-0"],
         "weight": [220, 195, 215, 200],
     })
+
+
+@pytest.fixture
+def minimal_samples():
+    """6 synthetic sample dicts matching the build_samples() schema.
+
+    Positions: 4 CB, 1 FS, 1 SS.
+    T=25 frames; first 10 are real (non-zero), frames 10-24 are padded (zero).
+    No disk I/O — all values are hardcoded constants.
+    """
+    T = 25
+    real_frames = 10
+    positions = ["CB", "CB", "CB", "CB", "FS", "SS"]
+    game_ids   = [2023010100, 2023010100, 2023010100, 2023010100, 2023010200, 2023010200]
+    play_ids   = [1, 2, 3, 4, 1, 2]
+    nfl_ids    = [100, 101, 102, 103, 104, 105]
+    samples = []
+    for i in range(6):
+        frames = np.zeros((T, 8), dtype=np.float32)
+        frames[:real_frames] = np.ones((real_frames, 8), dtype=np.float32) * (i + 1)
+        mask = np.zeros(T, dtype=bool)
+        mask[:real_frames] = True
+        samples.append({
+            "gameId": game_ids[i],
+            "playId": play_ids[i],
+            "nflId": nfl_ids[i],
+            "frames": frames,
+            "padding_mask": mask,
+            "target_xy": np.array([2.5, -1.0], dtype=np.float32),
+            "ball_target_xy": np.array([15.0, 3.0], dtype=np.float32),
+            "position": positions[i],
+        })
+    return samples
+
+
+@pytest.fixture
+def minimal_context_df():
+    """Synthetic tracking-like DataFrame for social context assembly.
+
+    Covers 4 game-play combos (2 games × 2 plays each).
+    3 players × 10 frames per combo = 120 rows per combo → 480 rows total.
+    Players: nflId 100 (CB), 200 (QB), 201 (WR).
+    Includes ball_land_x / ball_land_y columns matching minimal_samples ball_target_xy.
+    No disk I/O.
+    """
+    rows = []
+    game_play_combos = [
+        (2023010100, 1),
+        (2023010100, 2),
+        (2023010100, 3),
+        (2023010100, 4),
+        (2023010200, 1),
+        (2023010200, 2),
+    ]
+    player_positions = [(100, "CB"), (200, "QB"), (201, "WR")]
+    for game_id, play_id in game_play_combos:
+        for frame_id in range(1, 11):
+            for nfl_id, position in player_positions:
+                rows.append({
+                    "gameId": game_id,
+                    "playId": play_id,
+                    "frameId": frame_id,
+                    "nflId": nfl_id,
+                    "x": nfl_id * 0.01 + frame_id * 0.5,
+                    "y": frame_id * 0.2,
+                    "position": position,
+                    "ball_land_x": 15.0,
+                    "ball_land_y": 3.0,
+                })
+    return pd.DataFrame(rows)
