@@ -49,7 +49,12 @@ Plans:
   2. A unit test asserting that Model A input tensors contain zero ball-destination columns passes without error
   3. Only CB, FS, SS, and LB player-play samples appear in the dataset (offensive and special-teams players excluded)
   4. Padded positions in short-sequence samples carry a boolean masking flag that downstream model code can consume
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Test scaffold: 6 failing stubs in test_dataset.py + minimal_samples/minimal_context_df fixtures in conftest.py
+- [ ] 02-02-PLAN.md — Dataset implementation: DefensiveTrajectoryDataset with context index, social context assembly, ablation boundary (TDD, all 6 tests GREEN)
+- [ ] 02-03-PLAN.md — Integration smoke test: DataLoader shapes against real cleaned.parquet + human verify
 
 ### Phase 3: Model Architecture and Training Infrastructure
 **Goal**: A single shared model class instantiates cleanly for both Model A and Model B, and the training harness produces decreasing loss on a small overfit test
@@ -92,7 +97,7 @@ Phases execute in strict sequential order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Data Pipeline and Validation | 5/5 | Complete | 2026-03-13 |
-| 2. Feature Engineering and Dataset Wrappers | 0/TBD | Not started | - |
+| 2. Feature Engineering and Dataset Wrappers | 0/3 | Not started | - |
 | 3. Model Architecture and Training Infrastructure | 0/TBD | Not started | - |
 | 4. Model Training and Ablation Evaluation | 0/TBD | Not started | - |
 | 5. Visualization and Poster Figures | 0/TBD | Not started | - |
