@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-02 — TrajectoryTransformer implemented; 22/22 tests GREEN; overfit test 95%+ loss reduction for both model variants
-last_updated: "2026-03-14T00:37:08.496Z"
+stopped_at: Completed 04-01 — 8 RED TDD stubs written; test_training.py (4) and test_evaluation.py (4); 22 existing tests GREEN
+last_updated: "2026-03-14T00:55:53.726Z"
 last_activity: "2026-03-13 — Plan 02-02 complete (DefensiveTrajectoryDataset: position filter, context index, social context, ablation boundary)"
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 10
-  completed_plans: 10
+  total_plans: 14
+  completed_plans: 11
   percent: 100
 ---
 
@@ -70,6 +70,7 @@ Progress: [█████████░] 88%
 | Phase 02-feature-engineering-and-dataset-wrappers P03 | 5 | 2 tasks | 1 files |
 | Phase 03-model-architecture-and-training-infrastructure P01 | 2 | 1 tasks | 3 files |
 | Phase 03-model-architecture-and-training-infrastructure P02 | 8 | 2 tasks | 1 files |
+| Phase 04-model-training-and-ablation-evaluation P01 | 3 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -107,6 +108,8 @@ Recent decisions affecting current work:
 - [Phase 03-model-architecture-and-training-infrastructure]: overfit_test.py written in full during RED phase so Plan 03-02 only needs the import to succeed
 - [Phase 03-model-architecture-and-training-infrastructure]: Override forward() in AttentionCapturingEncoderLayer not _sa_block() — PyTorch 2.10 C++ fast-path bypasses _sa_block in eval mode
 - [Phase 03-model-architecture-and-training-infrastructure]: capture_attention=True constructor kwarg selects AttentionCapturingEncoderLayer — single kwarg cleaner than passing layer class
+- [Phase 04-model-training-and-ablation-evaluation]: Top-level imports in test stubs so ImportError fires at collection time — unambiguous RED state without pytest.mark.skip
+- [Phase 04-model-training-and-ablation-evaluation]: _DictDataset inline class pattern for list-of-dicts DataLoader compatibility in both test_training.py and test_evaluation.py
 
 ### Pending Todos
 
@@ -120,6 +123,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-14T00:34:38.520Z
-Stopped at: Completed 03-02 — TrajectoryTransformer implemented; 22/22 tests GREEN; overfit test 95%+ loss reduction for both model variants
+Last session: 2026-03-14T00:55:53.723Z
+Stopped at: Completed 04-01 — 8 RED TDD stubs written; test_training.py (4) and test_evaluation.py (4); 22 existing tests GREEN
 Resume file: None

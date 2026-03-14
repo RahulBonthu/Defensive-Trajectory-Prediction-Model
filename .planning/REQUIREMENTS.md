@@ -40,17 +40,17 @@
 
 ### Training
 
-- [ ] **TRAIN-01**: Both Model A and Model B are trained with identical architecture hyperparameters and the same train/val/test split
-- [ ] **TRAIN-02**: RMSE (root mean square error in yards) is used as the training loss function
-- [ ] **TRAIN-03**: Training runs are logged to wandb with full config for reproducibility
-- [ ] **TRAIN-04**: Both models are saved as checkpoints after training
+- [x] **TRAIN-01**: Both Model A and Model B are trained with identical architecture hyperparameters and the same train/val/test split
+- [x] **TRAIN-02**: RMSE (root mean square error in yards) is used as the training loss function
+- [x] **TRAIN-03**: Training runs are logged to wandb with full config for reproducibility
+- [x] **TRAIN-04**: Both models are saved as checkpoints after training
 
 ### Evaluation
 
-- [ ] **EVAL-01**: Both models are evaluated on the held-out test set; per-play RMSE is computed and stored for each prediction
-- [ ] **EVAL-02**: An ablation comparison table reports mean RMSE, standard deviation, and delta (Model A − Model B) for both models
-- [ ] **EVAL-03**: A statistical significance test (paired t-test or Wilcoxon signed-rank) is run on per-play RMSE differences between Model A and Model B
-- [ ] **EVAL-04**: Per-position subgroup RMSE is reported separately for CB, FS, SS, and LB
+- [x] **EVAL-01**: Both models are evaluated on the held-out test set; per-play RMSE is computed and stored for each prediction
+- [x] **EVAL-02**: An ablation comparison table reports mean RMSE, standard deviation, and delta (Model A − Model B) for both models
+- [x] **EVAL-03**: A statistical significance test (paired t-test or Wilcoxon signed-rank) is run on per-play RMSE differences between Model A and Model B
+- [x] **EVAL-04**: Per-position subgroup RMSE is reported separately for CB, FS, SS, and LB
 
 ### Visualization
 
@@ -107,14 +107,14 @@
 | MODEL-04 | Phase 3 — Model Architecture and Training Infrastructure | Complete |
 | MODEL-05 | Phase 3 — Model Architecture and Training Infrastructure | Complete |
 | MODEL-06 | Phase 3 — Model Architecture and Training Infrastructure | Complete |
-| TRAIN-01 | Phase 4 — Model Training and Ablation Evaluation | Pending |
-| TRAIN-02 | Phase 4 — Model Training and Ablation Evaluation | Pending |
-| TRAIN-03 | Phase 4 — Model Training and Ablation Evaluation | Pending |
-| TRAIN-04 | Phase 4 — Model Training and Ablation Evaluation | Pending |
-| EVAL-01 | Phase 4 — Model Training and Ablation Evaluation | Pending |
-| EVAL-02 | Phase 4 — Model Training and Ablation Evaluation | Pending |
-| EVAL-03 | Phase 4 — Model Training and Ablation Evaluation | Pending |
-| EVAL-04 | Phase 4 — Model Training and Ablation Evaluation | Pending |
+| TRAIN-01 | Phase 4 — Model Training and Ablation Evaluation | Complete |
+| TRAIN-02 | Phase 4 — Model Training and Ablation Evaluation | Complete |
+| TRAIN-03 | Phase 4 — Model Training and Ablation Evaluation | Complete |
+| TRAIN-04 | Phase 4 — Model Training and Ablation Evaluation | Complete |
+| EVAL-01 | Phase 4 — Model Training and Ablation Evaluation | Complete |
+| EVAL-02 | Phase 4 — Model Training and Ablation Evaluation | Complete |
+| EVAL-03 | Phase 4 — Model Training and Ablation Evaluation | Complete |
+| EVAL-04 | Phase 4 — Model Training and Ablation Evaluation | Complete |
 | VIZ-01 | Phase 5 — Visualization and Poster Figures | Pending |
 | VIZ-02 | Phase 5 — Visualization and Poster Figures | Pending |
 
