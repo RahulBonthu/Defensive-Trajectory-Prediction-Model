@@ -6,6 +6,7 @@ data/processed/
 
 # Model artifacts
 checkpoints/
+models/*.pt
 outputs/figures/
 
 # Python artifacts
