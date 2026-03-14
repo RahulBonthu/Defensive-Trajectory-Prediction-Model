@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 04-01 — 8 RED TDD stubs written; test_training.py (4) and test_evaluation.py (4); 22 existing tests GREEN
-last_updated: "2026-03-14T00:55:53.726Z"
+stopped_at: Completed 04-02 — train_one_model implemented; all 4 TRAIN tests GREEN; 26 total tests passing
+last_updated: "2026-03-14T00:59:43.609Z"
 last_activity: "2026-03-13 — Plan 02-02 complete (DefensiveTrajectoryDataset: position filter, context index, social context, ablation boundary)"
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 14
-  completed_plans: 11
+  completed_plans: 12
   percent: 100
 ---
 
@@ -71,6 +71,7 @@ Progress: [█████████░] 88%
 | Phase 03-model-architecture-and-training-infrastructure P01 | 2 | 1 tasks | 3 files |
 | Phase 03-model-architecture-and-training-infrastructure P02 | 8 | 2 tasks | 1 files |
 | Phase 04-model-training-and-ablation-evaluation P01 | 3 | 2 tasks | 2 files |
+| Phase 04-model-training-and-ablation-evaluation P02 | 2 | 1 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -110,6 +111,8 @@ Recent decisions affecting current work:
 - [Phase 03-model-architecture-and-training-infrastructure]: capture_attention=True constructor kwarg selects AttentionCapturingEncoderLayer — single kwarg cleaner than passing layer class
 - [Phase 04-model-training-and-ablation-evaluation]: Top-level imports in test stubs so ImportError fires at collection time — unambiguous RED state without pytest.mark.skip
 - [Phase 04-model-training-and-ablation-evaluation]: _DictDataset inline class pattern for list-of-dicts DataLoader compatibility in both test_training.py and test_evaluation.py
+- [Phase 04-model-training-and-ablation-evaluation]: try/except wandb.log when wandb_run is None — not wandb.init(mode=disabled) — keeps call site patchable via mock.patch('wandb.log') without requiring a real wandb run
+- [Phase 04-model-training-and-ablation-evaluation]: models/*.pt added to .gitignore — prevents committing 1MB+ checkpoint binaries produced by tests using default checkpoint_dir
 
 ### Pending Todos
 
@@ -123,6 +126,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-14T00:55:53.723Z
-Stopped at: Completed 04-01 — 8 RED TDD stubs written; test_training.py (4) and test_evaluation.py (4); 22 existing tests GREEN
+Last session: 2026-03-14T00:59:43.606Z
+Stopped at: Completed 04-02 — train_one_model implemented; all 4 TRAIN tests GREEN; 26 total tests passing
 Resume file: None
