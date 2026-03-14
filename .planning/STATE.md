@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-01 — 8 RED stubs for TrajectoryTransformer; src/model/__init__.py; overfit_test.py
-last_updated: "2026-03-14T00:30:18.522Z"
+stopped_at: Completed 03-02 — TrajectoryTransformer implemented; 22/22 tests GREEN; overfit test 95%+ loss reduction for both model variants
+last_updated: "2026-03-14T00:34:38.523Z"
 last_activity: "2026-03-13 — Plan 02-02 complete (DefensiveTrajectoryDataset: position filter, context index, social context, ablation boundary)"
 progress:
   total_phases: 5
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 10
-  completed_plans: 9
+  completed_plans: 10
   percent: 100
 ---
 
@@ -69,6 +69,7 @@ Progress: [█████████░] 88%
 *Updated after each plan completion*
 | Phase 02-feature-engineering-and-dataset-wrappers P03 | 5 | 2 tasks | 1 files |
 | Phase 03-model-architecture-and-training-infrastructure P01 | 2 | 1 tasks | 3 files |
+| Phase 03-model-architecture-and-training-infrastructure P02 | 8 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -104,6 +105,8 @@ Recent decisions affecting current work:
 - [Phase 03-model-architecture-and-training-infrastructure]: Deferred import inside test functions so pytest collects 8 tests individually (not 1 collection ERROR)
 - [Phase 03-model-architecture-and-training-infrastructure]: capture_attention=True kwarg pattern for TrajectoryTransformer — Plan 03-02 must implement this to enable SC-4 attention weight inspection
 - [Phase 03-model-architecture-and-training-infrastructure]: overfit_test.py written in full during RED phase so Plan 03-02 only needs the import to succeed
+- [Phase 03-model-architecture-and-training-infrastructure]: Override forward() in AttentionCapturingEncoderLayer not _sa_block() — PyTorch 2.10 C++ fast-path bypasses _sa_block in eval mode
+- [Phase 03-model-architecture-and-training-infrastructure]: capture_attention=True constructor kwarg selects AttentionCapturingEncoderLayer — single kwarg cleaner than passing layer class
 
 ### Pending Todos
 
@@ -117,6 +120,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-14T00:30:18.520Z
-Stopped at: Completed 03-01 — 8 RED stubs for TrajectoryTransformer; src/model/__init__.py; overfit_test.py
+Last session: 2026-03-14T00:34:38.520Z
+Stopped at: Completed 03-02 — TrajectoryTransformer implemented; 22/22 tests GREEN; overfit test 95%+ loss reduction for both model variants
 Resume file: None

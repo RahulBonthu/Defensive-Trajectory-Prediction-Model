@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Data Pipeline and Validation** - Load, normalize, and validate raw NFL tracking data into canonical LOS-relative player-play samples
 - [x] **Phase 2: Feature Engineering and Dataset Wrappers** - Build kinematic + social context feature vectors and PyTorch Datasets for both model variants with ablation gate enforced (completed 2026-03-14)
-- [ ] **Phase 3: Model Architecture and Training Infrastructure** - Implement shared Conv-Transformer model class and identical training harness for both models
+- [x] **Phase 3: Model Architecture and Training Infrastructure** - Implement shared Conv-Transformer model class and identical training harness for both models (completed 2026-03-14)
 - [ ] **Phase 4: Model Training and Ablation Evaluation** - Train Model A and Model B, evaluate on held-out test set, produce ablation comparison with statistical significance
 - [ ] **Phase 5: Visualization and Poster Figures** - Generate all poster-quality figures from trained model outputs and evaluation results
 
@@ -102,6 +102,6 @@ Phases execute in strict sequential order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Data Pipeline and Validation | 5/5 | Complete | 2026-03-13 |
 | 2. Feature Engineering and Dataset Wrappers | 3/3 | Complete    | 2026-03-14 |
-| 3. Model Architecture and Training Infrastructure | 1/2 | In Progress|  |
+| 3. Model Architecture and Training Infrastructure | 2/2 | Complete   | 2026-03-14 |
 | 4. Model Training and Ablation Evaluation | 0/TBD | Not started | - |
 | 5. Visualization and Poster Figures | 0/TBD | Not started | - |
