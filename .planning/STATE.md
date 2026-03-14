@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-03 — smoke test passes on real data; all Phase 2 success criteria verified
-last_updated: "2026-03-14T00:11:23.821Z"
+stopped_at: Completed 03-01 — 8 RED stubs for TrajectoryTransformer; src/model/__init__.py; overfit_test.py
+last_updated: "2026-03-14T00:30:18.522Z"
 last_activity: "2026-03-13 — Plan 02-02 complete (DefensiveTrajectoryDataset: position filter, context index, social context, ablation boundary)"
 progress:
   total_phases: 5
   completed_phases: 2
-  total_plans: 8
-  completed_plans: 8
+  total_plans: 10
+  completed_plans: 9
   percent: 100
 ---
 
@@ -68,6 +68,7 @@ Progress: [█████████░] 88%
 
 *Updated after each plan completion*
 | Phase 02-feature-engineering-and-dataset-wrappers P03 | 5 | 2 tasks | 1 files |
+| Phase 03-model-architecture-and-training-infrastructure P01 | 2 | 1 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -100,6 +101,9 @@ Recent decisions affecting current work:
 - [Phase 02-02]: Ball destination fallback chain: _ball_index -> sample['ball_target_xy'] -> ValueError (explicit failure over silent wrong value)
 - [Phase 02-03]: Smoke test runs from project root so relative parquet/splits.json paths resolve correctly
 - [Phase 02-03]: Human-verify gate kept blocking — unit tests use synthetic fixtures and cannot substitute for real-data shape check
+- [Phase 03-model-architecture-and-training-infrastructure]: Deferred import inside test functions so pytest collects 8 tests individually (not 1 collection ERROR)
+- [Phase 03-model-architecture-and-training-infrastructure]: capture_attention=True kwarg pattern for TrajectoryTransformer — Plan 03-02 must implement this to enable SC-4 attention weight inspection
+- [Phase 03-model-architecture-and-training-infrastructure]: overfit_test.py written in full during RED phase so Plan 03-02 only needs the import to succeed
 
 ### Pending Todos
 
@@ -113,6 +117,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-14T00:08:04.697Z
-Stopped at: Completed 02-03 — smoke test passes on real data; all Phase 2 success criteria verified
+Last session: 2026-03-14T00:30:18.520Z
+Stopped at: Completed 03-01 — 8 RED stubs for TrajectoryTransformer; src/model/__init__.py; overfit_test.py
 Resume file: None

@@ -31,12 +31,12 @@
 
 ### Model Architecture
 
-- [ ] **MODEL-01**: A shared model class implements the full architecture: 1D Conv layer → Transformer Encoder → Linear output head
-- [ ] **MODEL-02**: The 1D Conv layer processes the player's own kinematic time-series to extract local trajectory patterns before attention
-- [ ] **MODEL-03**: The Transformer Encoder cross-references player trajectory tokens against social context (other players) to learn interaction effects
-- [ ] **MODEL-04**: The linear output head predicts ending (x, y) position relative to the line of scrimmage (2 scalar outputs)
-- [ ] **MODEL-05**: Model A is instantiated from the shared class with ball destination feature disabled
-- [ ] **MODEL-06**: Model B is instantiated from the shared class with ball destination injected as a directed feature token
+- [x] **MODEL-01**: A shared model class implements the full architecture: 1D Conv layer → Transformer Encoder → Linear output head
+- [x] **MODEL-02**: The 1D Conv layer processes the player's own kinematic time-series to extract local trajectory patterns before attention
+- [x] **MODEL-03**: The Transformer Encoder cross-references player trajectory tokens against social context (other players) to learn interaction effects
+- [x] **MODEL-04**: The linear output head predicts ending (x, y) position relative to the line of scrimmage (2 scalar outputs)
+- [x] **MODEL-05**: Model A is instantiated from the shared class with ball destination feature disabled
+- [x] **MODEL-06**: Model B is instantiated from the shared class with ball destination injected as a directed feature token
 
 ### Training
 
@@ -101,12 +101,12 @@
 | FEAT-04 | Phase 2 — Feature Engineering and Dataset Wrappers | Complete |
 | FEAT-05 | Phase 2 — Feature Engineering and Dataset Wrappers | Complete |
 | FEAT-06 | Phase 2 — Feature Engineering and Dataset Wrappers | Complete |
-| MODEL-01 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
-| MODEL-02 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
-| MODEL-03 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
-| MODEL-04 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
-| MODEL-05 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
-| MODEL-06 | Phase 3 — Model Architecture and Training Infrastructure | Pending |
+| MODEL-01 | Phase 3 — Model Architecture and Training Infrastructure | Complete |
+| MODEL-02 | Phase 3 — Model Architecture and Training Infrastructure | Complete |
+| MODEL-03 | Phase 3 — Model Architecture and Training Infrastructure | Complete |
+| MODEL-04 | Phase 3 — Model Architecture and Training Infrastructure | Complete |
+| MODEL-05 | Phase 3 — Model Architecture and Training Infrastructure | Complete |
+| MODEL-06 | Phase 3 — Model Architecture and Training Infrastructure | Complete |
 | TRAIN-01 | Phase 4 — Model Training and Ablation Evaluation | Pending |
 | TRAIN-02 | Phase 4 — Model Training and Ablation Evaluation | Pending |
 | TRAIN-03 | Phase 4 — Model Training and Ablation Evaluation | Pending |
