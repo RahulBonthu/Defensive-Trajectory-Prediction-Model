@@ -109,5 +109,5 @@ Phases execute in strict sequential order: 1 → 2 → 3 → 4 → 5
 | 1. Data Pipeline and Validation | 5/5 | Complete | 2026-03-13 |
 | 2. Feature Engineering and Dataset Wrappers | 3/3 | Complete    | 2026-03-14 |
 | 3. Model Architecture and Training Infrastructure | 2/2 | Complete    | 2026-03-14 |
-| 4. Model Training and Ablation Evaluation | 2/4 | In Progress|  |
+| 4. Model Training and Ablation Evaluation | 3/4 | In Progress|  |
 | 5. Visualization and Poster Figures | 0/TBD | Not started | - |
