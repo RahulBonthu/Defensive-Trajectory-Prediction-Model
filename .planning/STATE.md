@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Completed 02-01 — dataset test scaffold (6 RED stubs + 2 synthetic fixtures)"
-last_updated: "2026-03-13T23:56:13Z"
-last_activity: 2026-03-13 — Plan 02-01 complete (Wave-0 test scaffold; 6 RED stubs; all 8 Phase 1 pipeline tests still green)
+stopped_at: "Completed 02-02 — DefensiveTrajectoryDataset implemented; all 14 tests GREEN"
+last_updated: "2026-03-14T00:00:19Z"
+last_activity: "2026-03-13 — Plan 02-02 complete (DefensiveTrajectoryDataset; 6 Phase 2 tests GREEN; 14 total tests passing)"
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 6
-  completed_plans: 6
-  percent: 22
+  total_plans: 8
+  completed_plans: 7
+  percent: 88
 ---
 
 # Project State
@@ -26,28 +26,29 @@ See: .planning/PROJECT.md (updated 2026-03-13)
 ## Current Position
 
 Phase: 2 of 5 (Feature Engineering and Dataset Wrappers) — in progress
-Plan: 02-01 complete (1/N) — next: plan 02-02 (implement DefensiveTrajectoryDataset)
-Status: Phase 2 in progress — Wave-0 test scaffold done, ready for implementation
-Last activity: 2026-03-13 — Plan 02-01 complete (Wave-0 scaffold: 6 RED test stubs + minimal_samples + minimal_context_df fixtures; all 8 Phase 1 tests still green)
+Plan: 02-02 complete (2/N) — next: plan 02-03 (Model A transformer)
+Status: Phase 2 in progress — DefensiveTrajectoryDataset implemented; all 14 tests GREEN
+Last activity: 2026-03-13 — Plan 02-02 complete (DefensiveTrajectoryDataset: position filter, context index, social context, ablation boundary)
 
-Progress: [████████░░] 22%
+Progress: [█████████░] 88%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 10 min
-- Total execution time: 0.7 hours
+- Total plans completed: 6
+- Average duration: 8 min
+- Total execution time: ~0.75 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-data-pipeline-and-validation | 4 | 43 min | 11 min |
+| 02-feature-engineering-and-dataset-wrappers | 2 | 2 min | 1 min |
 
 **Recent Trend:**
-- Last 5 plans: 4 min, 7 min, 8 min, 24 min
-- Trend: stable (plan 01-04 longer due to dataset format discovery + adaptation)
+- Last 5 plans: 4 min, 7 min, 8 min, 24 min, 1 min
+- Trend: stable (02-02 fast due to complete TDD scaffold from 02-01)
 
 *Updated after each plan completion*
 
@@ -77,6 +78,9 @@ Recent decisions affecting current work:
 - [02-01]: Test stubs use real assertions (not pytest.mark.skip) to keep RED state visible — skip masks the RED/GREEN signal
 - [02-01]: minimal_context_df fixture includes ball_land_x/ball_land_y columns so dataset implementation can read them without disk access
 - [02-01]: STRICT_POSITIONS = {"CB", "FS", "SS", "LB"} documented in test_dataset.py as the position filtering contract
+- [Phase 02-02]: Pre-build context index in __init__, set self.context_df=None afterwards — prevents DataLoader worker OOM
+- [Phase 02-02]: Social context slots sorted by nflId ascending — deterministic order regardless of DataFrame scan order
+- [Phase 02-02]: Ball destination fallback chain: _ball_index -> sample['ball_target_xy'] -> ValueError (explicit failure over silent wrong value)
 
 ### Pending Todos
 
@@ -90,6 +94,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-13T23:56:13Z
-Stopped at: Completed 02-01 — dataset test scaffold (6 RED stubs + 2 synthetic fixtures); ready for 02-02
+Last session: 2026-03-14T00:00:19.489Z
+Stopped at: Completed 02-02 — DefensiveTrajectoryDataset implemented; all 14 tests GREEN
 Resume file: None
