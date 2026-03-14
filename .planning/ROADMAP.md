@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Data Pipeline and Validation** - Load, normalize, and validate raw NFL tracking data into canonical LOS-relative player-play samples
 - [x] **Phase 2: Feature Engineering and Dataset Wrappers** - Build kinematic + social context feature vectors and PyTorch Datasets for both model variants with ablation gate enforced (completed 2026-03-14)
-- [x] **Phase 3: Model Architecture and Training Infrastructure** - Implement shared Conv-Transformer model class and identical training harness for both models (completed 2026-03-14)
+- [x] **Phase 3: Model Architecture and Training Infrastructure** - Implement shared Conv-Transformer model class and identical training harness for both models (completed 2026-03-14)
 - [ ] **Phase 4: Model Training and Ablation Evaluation** - Train Model A and Model B, evaluate on held-out test set, produce ablation comparison with statistical significance
 - [ ] **Phase 5: Visualization and Poster Figures** - Generate all poster-quality figures from trained model outputs and evaluation results
 
@@ -81,7 +81,13 @@ Plans:
   3. An ablation comparison table exists reporting mean RMSE, standard deviation, and delta (Model A minus Model B) across 3-5 seeds for both models
   4. A p-value from a paired t-test or Wilcoxon signed-rank test on per-play RMSE differences is reported alongside the ablation table
   5. Per-position RMSE is reported separately for CB, FS, SS, and LB
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — TDD stubs: tests/test_training.py (4 RED stubs for TRAIN-01 through TRAIN-04) + tests/test_evaluation.py (4 RED stubs for EVAL-01 through EVAL-04)
+- [ ] 04-02-PLAN.md — Training loop: scripts/train_model.py with train_one_model() — wandb logging, best-val checkpointing, identical hyperparameters (4 TRAIN tests GREEN)
+- [ ] 04-03-PLAN.md — Evaluation functions: scripts/evaluate_ablation.py with collect_per_play_rmse, build_ablation_table, run_significance_tests, compute_per_position_rmse (4 EVAL tests GREEN)
+- [ ] 04-04-PLAN.md — Full training run: scripts/run_training.py orchestrates 3-seed training + evaluation; human verifies wandb convergence + ablation table
 
 ### Phase 5: Visualization and Poster Figures
 **Goal**: All poster-quality figures are produced at 300 DPI and correctly represent the ablation findings using LOS-relative coordinates
@@ -103,5 +109,5 @@ Phases execute in strict sequential order: 1 → 2 → 3 → 4 → 5
 | 1. Data Pipeline and Validation | 5/5 | Complete | 2026-03-13 |
 | 2. Feature Engineering and Dataset Wrappers | 3/3 | Complete    | 2026-03-14 |
 | 3. Model Architecture and Training Infrastructure | 2/2 | Complete    | 2026-03-14 |
-| 4. Model Training and Ablation Evaluation | 0/TBD | Not started | - |
+| 4. Model Training and Ablation Evaluation | 0/4 | Not started | - |
 | 5. Visualization and Poster Figures | 0/TBD | Not started | - |
