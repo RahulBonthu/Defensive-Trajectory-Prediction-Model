@@ -13,7 +13,7 @@ Five sequential phases deliver the complete ablation study pipeline. The depende
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Data Pipeline and Validation** - Load, normalize, and validate raw NFL tracking data into canonical LOS-relative player-play samples
-- [x] **Phase 2: Feature Engineering and Dataset Wrappers** - Build kinematic + social context feature vectors and PyTorch Datasets for both model variants with ablation gate enforced (completed 2026-03-14)
+- [x] **Phase 2: Feature Engineering and Dataset Wrappers** - Build kinematic + social context feature vectors and PyTorch Datasets for both model variants with ablation gate enforced (completed 2026-03-14)
 - [ ] **Phase 3: Model Architecture and Training Infrastructure** - Implement shared Conv-Transformer model class and identical training harness for both models
 - [ ] **Phase 4: Model Training and Ablation Evaluation** - Train Model A and Model B, evaluate on held-out test set, produce ablation comparison with statistical significance
 - [ ] **Phase 5: Visualization and Poster Figures** - Generate all poster-quality figures from trained model outputs and evaluation results
@@ -65,7 +65,11 @@ Plans:
   2. Training loss decreases monotonically on a 100-sample overfit test for both model variants
   3. Both Model A and Model B are instantiated from the same class with only input dimension differing — verified by inspecting the config object
   4. Padded sequence positions receive near-zero attention weight (verified on a known padded sequence via attention weight inspection)
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — TDD stubs: 8 RED tests in test_model.py + src/model/__init__.py + scripts/overfit_test.py
+- [ ] 03-02-PLAN.md — Model implementation: TrajectoryTransformer, AttentionCapturingEncoderLayer, rmse_loss, get_device — all 8 tests GREEN + overfit convergence verified
 
 ### Phase 4: Model Training and Ablation Evaluation
 **Goal**: Both models are fully trained and the core research finding — the RMSE delta between Model A and Model B with statistical significance — is computed and stored
@@ -98,6 +102,6 @@ Phases execute in strict sequential order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Data Pipeline and Validation | 5/5 | Complete | 2026-03-13 |
 | 2. Feature Engineering and Dataset Wrappers | 3/3 | Complete    | 2026-03-14 |
-| 3. Model Architecture and Training Infrastructure | 0/TBD | Not started | - |
+| 3. Model Architecture and Training Infrastructure | 0/2 | Not started | - |
 | 4. Model Training and Ablation Evaluation | 0/TBD | Not started | - |
 | 5. Visualization and Poster Figures | 0/TBD | Not started | - |
