@@ -3,11 +3,27 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
+stopped_at: Completed 02-03 — smoke test passes on real data; all Phase 2 success criteria verified
+last_updated: "2026-03-14T00:08:04.699Z"
+last_activity: "2026-03-13 — Plan 02-02 complete (DefensiveTrajectoryDataset: position filter, context index, social context, ablation boundary)"
+progress:
+  total_phases: 5
+  completed_phases: 2
+  total_plans: 8
+  completed_plans: 8
+  percent: 100
+---
+
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+status: executing
 stopped_at: "Completed 02-02 — DefensiveTrajectoryDataset implemented; all 14 tests GREEN"
 last_updated: "2026-03-14T00:00:19Z"
 last_activity: "2026-03-13 — Plan 02-02 complete (DefensiveTrajectoryDataset; 6 Phase 2 tests GREEN; 14 total tests passing)"
 progress:
-  total_phases: 5
+  [██████████] 100%
   completed_phases: 1
   total_plans: 8
   completed_plans: 7
@@ -51,6 +67,7 @@ Progress: [█████████░] 88%
 - Trend: stable (02-02 fast due to complete TDD scaffold from 02-01)
 
 *Updated after each plan completion*
+| Phase 02-feature-engineering-and-dataset-wrappers P03 | 5 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -81,6 +98,8 @@ Recent decisions affecting current work:
 - [Phase 02-02]: Pre-build context index in __init__, set self.context_df=None afterwards — prevents DataLoader worker OOM
 - [Phase 02-02]: Social context slots sorted by nflId ascending — deterministic order regardless of DataFrame scan order
 - [Phase 02-02]: Ball destination fallback chain: _ball_index -> sample['ball_target_xy'] -> ValueError (explicit failure over silent wrong value)
+- [Phase 02-03]: Smoke test runs from project root so relative parquet/splits.json paths resolve correctly
+- [Phase 02-03]: Human-verify gate kept blocking — unit tests use synthetic fixtures and cannot substitute for real-data shape check
 
 ### Pending Todos
 
@@ -94,6 +113,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-14T00:00:19.489Z
-Stopped at: Completed 02-02 — DefensiveTrajectoryDataset implemented; all 14 tests GREEN
+Last session: 2026-03-14T00:08:04.697Z
+Stopped at: Completed 02-03 — smoke test passes on real data; all Phase 2 success criteria verified
 Resume file: None
